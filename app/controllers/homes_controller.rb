@@ -1,7 +1,6 @@
 class HomesController < ApplicationController
-  def welcome
-  end
-
   def index
+    template = user_signed_in? ? "index" : "welcome"
+    render "homes/" + template
   end
 end

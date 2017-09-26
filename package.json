@@ -1,7 +1,7 @@
 {
   "name": "sai",
   "private": true,
-  "script": {
+  "scripts": {
     "start": "bin/webpack-dev-server"
   },
   "dependencies": {

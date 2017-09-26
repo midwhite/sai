@@ -6,6 +6,7 @@
 
 /node_modules
 /yarn-error.log
+npm-debug.log
 
 .byebug_history
 /vendor/bundle
