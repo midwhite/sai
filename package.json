@@ -1,11 +1,15 @@
 {
   "name": "sai",
   "private": true,
+  "script": {
+    "start": "bin/webpack-dev-server"
+  },
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
     "vue": "^2.4.4",
     "vue-loader": "^13.0.5",
-    "vue-template-compiler": "^2.4.4"
+    "vue-template-compiler": "^2.4.4",
+    "vuex": "^2.4.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.8.2"
