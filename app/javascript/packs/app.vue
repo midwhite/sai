@@ -1,28 +1,19 @@
 <template>
   <div id="app">
-    <p>{{ firstMessage }}</p>
+    <HeaderMenu />
+    <router-view />
+    <FooterMenu />
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import HeaderMenu from './components/header';
+import FooterMenu from './components/footer';
 
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
-  },
-  computed: {
-    ...mapState(["messages"]),
-    ...mapGetters(["firstMessage"])
+  components: {
+    HeaderMenu,
+    FooterMenu
   }
 }
 </script>
-
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-</style>

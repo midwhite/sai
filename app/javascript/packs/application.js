@@ -1,19 +1,21 @@
 /* eslint no-console:0 */
 
-import Vue from 'vue';
-import Vuex from 'vuex';
-import Store from './store';
+import Vue       from 'vue';
+import Vuex      from 'vuex';
+import VueRouter from 'vue-router';
 
-import App from './app';
+import store  from './store';
+import routes from './routes';
+import App    from './app';
 
 Vue.use(Vuex);
-
-const store = new Vuex.Store(Store);
+Vue.use(VueRouter);
 
 window.addEventListener("DOMContentLoaded", ()=>{
   const vm = new Vue({
     el: "#application",
-    store,
-    render (h) { return h(App); }
+    store: new Vuex.Store(store),
+    router: new VueRouter(routes),
+    render: (h) => h(App)
   });
 });
