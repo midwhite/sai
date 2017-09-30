@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
     <title>S.A.I. - Social Action Initiatives</title>
     <%= csrf_meta_tags %>
 
@@ -13,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 
     <% if user_signed_in? %>
-      <%#= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <% end %>
   </head>

@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" class="container-fluid">
     <HeaderMenu />
-    <router-view />
+    <div id="contentBox">
+      <router-view />
+    </div>
     <FooterMenu />
   </div>
 </template>
@@ -17,3 +19,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  #contentBox {
+    margin-top: 60px;
+  }
+</style>
