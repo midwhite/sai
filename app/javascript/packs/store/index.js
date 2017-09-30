@@ -1,20 +1,18 @@
-import Vuex from 'vuex';
-import Actions from './action-types';
-import Mutations from './mutation-types';
+import actions from './action-types';
+import mutations from './mutation-types';
 
 const state = {
-  messages: ["Store has loaded."]
+  topics: [],
+  notifications: []
 };
 
-const getters = {
-  firstMessage: state => state.messages[0]
-};
+const getters = {};
 
 const store = {
   state,
   getters,
-  Actions,
-  Mutations
+  actions,
+  mutations
 };
 
 export default store;
