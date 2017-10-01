@@ -16,6 +16,12 @@ Rails.application.routes.draw do
         post 'bad'
       end
     end
+
+    resources :users do
+      collection do
+        delete 'sign_out'
+      end
+    end
   end
 
   get '*path', to: 'application#render_404'

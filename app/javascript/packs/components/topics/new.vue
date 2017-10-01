@@ -1,7 +1,8 @@
 <template>
   <div id="newTopic">
     <form id="newTopicForm" @submit="onSubmit">
-      <div class="btn-area">
+      <p class="lets-post-topic">選挙についての意見や知りたいことを投稿してみよう。</p>
+      <div class="btn-area select-position">
         <select name="topic[target_id]" id="new_topic_target_id" class="input-sm">
           <option v-for="(party, i) of parties" :value="i">{{party}}</option>
         </select>
@@ -55,6 +56,16 @@
     padding: 0px 10px;
     margin: 10px 0px;
     background: #FFF;
+  }
+  .lets-post-topic {
+    padding-top: 8px;
+    margin: 0px;
+    color: #666;
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+  .select-position {
+    line-height: 2.5em;
   }
   .btn-area {
     text-align: right;

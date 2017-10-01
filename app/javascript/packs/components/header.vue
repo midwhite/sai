@@ -61,11 +61,12 @@ export default {
 
 <style scoped>
   #header {
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
     background: #FFF;
+    box-shadow: 0px 1px 3px rgba(0,0,0,.5);
     z-index: 3;
   }
   .logo {

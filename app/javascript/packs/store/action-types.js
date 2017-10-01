@@ -15,7 +15,7 @@ export default {
     const topicId = parseInt(e.target.dataset.topicId);
     if(context.state.goodTopics.indexOf(topicId) === -1){
       axios.post(`/topics/${topicId}/good`).then(({data}) => {
-        context.commit("addReputation", {
+        context.commit("addTopicReputation", {
           id: topicId,
           type: "good",
           topic: data.topic
@@ -27,7 +27,7 @@ export default {
     const topicId = parseInt(e.target.dataset.topicId);
     if(context.state.badTopics.indexOf(topicId) === -1){
       axios.post(`/topics/${topicId}/bad`).then(({data}) => {
-        context.commit("addReputation", {
+        context.commit("addTopicReputation", {
           id: topicId,
           type: "bad",
           topic: data.topic

@@ -30,7 +30,7 @@
 <style scoped>
   .comment-component {
     padding: 10px;
-    border-radius: 3px;
+    border-bottom: 1px solid #CCC;
     background: #EEE;
   }
   .content p {

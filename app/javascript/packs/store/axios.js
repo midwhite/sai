@@ -24,12 +24,10 @@ export default {
   },
   put(path, params = {}){
     const url = API_URL_BASE + path;
-    const token = document.querySelector("meta[name=csrf-token]").content;
-    params.append("authenticity_token", token);
     return axios.put(url, setToken(params));
   },
   delete(path, params = {}){
     const url = API_URL_BASE + path;
-    return axios.delete(url, setToken(params));
+    return axios.delete(url, { data: setToken(params) });
   },
 }

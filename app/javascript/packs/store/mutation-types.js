@@ -2,7 +2,7 @@ export default {
   addTopic(state, topics){
     state.topics.unshift(...topics);
   },
-  addReputation(state, params){
+  addTopicReputation(state, params){
     // 既に評価済みのTopicIDを管理
     switch(params.type){
       case "good":

@@ -1,6 +1,7 @@
 <template>
   <div class="new-comment">
     <form @submit="onSubmit">
+      <p class="lets-comment">この政策についてコメントしてみよう</p>
       <div class="btn-area">
         <strong class="strong">{{parties[topic.target_id]}}</strong>
         <span>の</span>
@@ -43,6 +44,11 @@
 </script>
 
 <style scoped>
+  .lets-comment {
+    margin: 8px 0px 0px;
+    color: #666;
+    text-align: right;
+  }
   .btn-area {
     padding: 8px 0px;
     text-align: right;

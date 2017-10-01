@@ -1,7 +1,7 @@
 <template>
   <div clas="comment-component">
-    <NewComment :topic="topic" />
     <Comment v-for="comment of topic.comments" :topic="topic" :comment="comment" />
+    <NewComment :topic="topic" />
   </div>
 </template>
 
