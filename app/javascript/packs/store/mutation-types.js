@@ -20,5 +20,25 @@ export default {
     state.topics = state.topics.map(topic => {
       return (topic.id === params.id) ? params.topic : topic;
     });
+  },
+  setComments(state, comments){
+    if(comments.length > 0){
+      state.topics = state.topics.map(topic => {
+        if(topic.id === comments[0].topic_id ){
+          topic.comments = comments;
+        }
+        return topic;
+      });
+    }
+  },
+  addComments(state, comments){
+    if(comments.length > 0){
+      state.topics = state.topics.map(topic => {
+        if(topic.id === comments[0].topic_id ){
+          topic.comments = topic.comments.concat(comments);
+        }
+        return topic;
+      });
+    }
   }
 }

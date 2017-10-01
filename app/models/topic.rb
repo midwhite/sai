@@ -1,8 +1,11 @@
 class Topic < ApplicationRecord
   enum policy: POLICY_PARAMS
 
-  validates :title, presence: true
+  validates :user_id, presence: true
+  validates :title,   presence: true
   validates :content, presence: true
+
+  has_many :comments, dependent: :destroy
 
   def response
     {
@@ -15,7 +18,8 @@ class Topic < ApplicationRecord
       policy: self.policy,
       position: self.position,
       good: self.good,
-      bad: self.bad
+      bad: self.bad,
+      comments: []
     }
   end
 end

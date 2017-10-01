@@ -8,12 +8,13 @@
         <span>に</span>
         <select name="comment[position]" class="input-sm">
           <option value="1">賛成</option>
-          <option value="0">反対</option>
-          <option value="-1">質問</option>
+          <option value="-1">反対</option>
+          <option value="0">質問</option>
         </select>
       </div>
-      <textarea name="content" rows="4" :data-topic-id="topic.id" class="form-control" placeholder="コメント"></textarea>
-      <input v-if="replyTo" type="hidden" name="reply_to" :value="replyTo" />
+      <textarea name="comment[content]" rows="4" class="form-control" placeholder="コメント" required></textarea>
+      <input type="hidden" name="comment[topic_id]" :value="topic.id" />
+      <input type="hidden" name="comment[reply_to]" :value="replyTo" v-if="replyTo" />
       <div class="btn-area">
         <input type="submit" class="btn-submit" />
       </div>
@@ -22,6 +23,7 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex';
   import { PARTY_PARAMS } from '../../constants';
 
   export default {
@@ -30,9 +32,11 @@
       parties(){ return PARTY_PARAMS; }
     },
     methods: {
+      ...mapActions(["postComment"]),
       onSubmit(e){
         e.preventDefault();
-        console.log(e, e.target.dataset.topicId);
+        this.postComment(new FormData(e.target));
+        e.target.reset();
       }
     }
   }

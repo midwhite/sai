@@ -34,5 +34,16 @@ export default {
         });
       });
     }
+  },
+  getComments(context, params){
+    axios.get(`/topics/${params.topicId}/comments`).then(({data}) => {
+      context.commit("setComments", data.comments);
+    });
+  },
+  postComment(context, params){
+    const topicId = params.get("comment[topic_id]");
+    axios.post(`/topics/${topicId}/comments`, params).then(({data}) => {
+      context.commit("addComments", [data.comment]);
+    });
   }
 }

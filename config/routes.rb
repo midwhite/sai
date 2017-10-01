@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     # Topics
     resources :topics do
       member do
+        resources :comments
         post 'good'
         post 'bad'
       end

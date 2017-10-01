@@ -21,22 +21,23 @@
     <div class="topic-operation">
       <div class="operation-panel" :data-topic-id="topic.id" @click="makeGood">Good x{{topic.good}}</div>
       <div class="operation-panel" :data-topic-id="topic.id" @click="makeBad">Bad x{{topic.bad}}</div>
-      <div class="operation-panel">Comments</div>
+      <div class="operation-panel" @click="toggleComment">Comments</div>
     </div>
-    <NewComment :topic="topic" />
+    <Comments :topic="topic" v-if="openComment" />
   </div>
 </template>
 
 <script>
   import { mapActions } from 'vuex';
   import { PARTY_PARAMS } from '../../constants';
-  import NewComment from '../comments/new';
+  import Comments from '../comments';
 
   export default {
     props: ["topic"],
     data(){
       return {
-        openContent: false
+        openContent: false,
+        openComment: false
       };
     },
     computed: {
@@ -46,13 +47,15 @@
       }
     },
     components: {
-      NewComment
+      Comments
     },
     methods: {
       ...mapActions(["makeGood", "makeBad"]),
       toggleContent(){
-        console.log(this);
         this.openContent = !this.openContent;
+      },
+      toggleComment(){
+        this.openComment = !this.openComment;
       }
     }
   }

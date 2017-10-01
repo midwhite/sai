@@ -40,17 +40,22 @@
       }
     },
     methods: {
+      ...mapActions(["postTopic"]),
       onSubmit(e){
         e.preventDefault();
         this.postTopic(new FormData(e.target));
         e.target.reset();
-      },
-      ...mapActions(["postTopic"])
+      }
     }
   }
 </script>
 
 <style scoped>
+  #newTopic {
+    padding: 0px 10px;
+    margin: 10px 0px;
+    background: #FFF;
+  }
   .btn-area {
     text-align: right;
     padding: 8px 0px;
