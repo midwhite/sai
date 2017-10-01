@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_DOMAIN } from '../constants';
 
-const API_DOMAIN = location.host === "localhost:3000" ? "http://localhost:3000/api" : "https://www.social-action-initiatives.org/api";
+const API_URL_BASE = location.host === "localhost:3000" ? "http://localhost:3000/api" : API_DOMAIN + "/api";
 
 const setToken = params => {
   const token = document.querySelector("meta[name=csrf-token]").content;
@@ -14,21 +15,21 @@ const setToken = params => {
 
 export default {
   get(path, params = {}){
-    const url = API_DOMAIN + path;
+    const url = API_URL_BASE + path;
     return axios.get(url, params);
   },
   post(path, params = {}){
-    const url = API_DOMAIN + path;
+    const url = API_URL_BASE + path;
     return axios.post(url, setToken(params));
   },
   put(path, params = {}){
-    const url = API_DOMAIN + path;
+    const url = API_URL_BASE + path;
     const token = document.querySelector("meta[name=csrf-token]").content;
     params.append("authenticity_token", token);
     return axios.put(url, setToken(params));
   },
   delete(path, params = {}){
-    const url = API_DOMAIN + path;
+    const url = API_URL_BASE + path;
     return axios.delete(url, setToken(params));
   },
 }

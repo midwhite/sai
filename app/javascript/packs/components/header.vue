@@ -53,7 +53,7 @@ export default {
       this.open = !this.open;
     },
     closeMenu(){
-      this.open = false;
+      this.open = window.innerWidth > 767;
     }
   }
 }

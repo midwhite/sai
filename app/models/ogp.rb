@@ -1,0 +1,2 @@
+class Ogp < ApplicationRecord
+end

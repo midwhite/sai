@@ -11,8 +11,22 @@ class Api::TopicsController < ApplicationController
     render status: :created, json: { topic: topic.response }
   end
 
+  def good
+    topic = Topic.find(params[:id])
+    topic.good += 1
+    topic.save
+    render status: :ok, json: { topic: topic }
+  end
+
+  def bad
+    topic = Topic.find(params[:id])
+    topic.bad += 1
+    topic.save
+    render status: :ok, json: { topic: topic }
+  end
+
   private
   def topic_params
-    params.require(:topic).permit(:title, :content, :policy_id, :target_id, :target_type).merge(user_id: current_user.id)
+    params.require(:topic).permit(:title, :content, :target_id, :target_type, :policy, :position).merge(user_id: current_user.id)
   end
 end

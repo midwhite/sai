@@ -3,7 +3,9 @@ import mutations from './mutation-types';
 
 const state = {
   topics: [],
-  notifications: []
+  notifications: [],
+  goodTopics: [],
+  badTopics: []
 };
 
 const getters = {};

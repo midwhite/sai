@@ -8,6 +8,8 @@ class CreateTopics < ActiveRecord::Migration[5.1]
       t.string :target_type
       t.integer :policy
       t.integer :position
+      t.integer :good, null: false, default: 0
+      t.integer :bad, null: false, default: 0
 
       t.timestamps
     end

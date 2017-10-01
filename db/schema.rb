@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930200630) do
+ActiveRecord::Schema.define(version: 20171001061301) do
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "topic_id"
+    t.integer "user_id"
+    t.integer "reply_to"
+    t.text "content"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reply_to"], name: "index_comments_on_reply_to"
+    t.index ["topic_id"], name: "index_comments_on_topic_id"
+  end
+
+  create_table "ogps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "target_id"
+    t.string "target_type"
+    t.string "url"
+    t.string "image"
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["target_type", "target_id"], name: "index_ogps_on_target_type_and_target_id"
+  end
 
   create_table "topics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
@@ -20,6 +44,8 @@ ActiveRecord::Schema.define(version: 20170930200630) do
     t.string "target_type"
     t.integer "policy"
     t.integer "position"
+    t.integer "good", default: 0, null: false
+    t.integer "bad", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["policy"], name: "index_topics_on_policy"

@@ -11,6 +11,8 @@ import App    from './app';
 Vue.use(Vuex);
 Vue.use(VueRouter);
 
+import './assets/css/application';
+
 window.addEventListener("DOMContentLoaded", ()=>{
   const vm = new Vue({
     el: "#application",

@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   # API
   namespace :api do
     # Topics
-    resources :topics
+    resources :topics do
+      member do
+        post 'good'
+        post 'bad'
+      end
+    end
   end
 
   get '*path', to: 'application#render_404'

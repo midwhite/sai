@@ -1,20 +1,23 @@
 <template>
-  <div id="topics">
-    <h1>topics#index</h1>
-    <NewTopic />
-    <ul>
-      <li v-for="topic of topics">{{topic.title}}</li>
-    </ul>
+  <div id="topics" class="row">
+    <div class="col-sm-12">
+      <NewTopic />
+      <div class="topics-list">
+        <Topic v-for="topic of topics" :topic="topic" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import { mapState, mapActions } from 'vuex';
   import NewTopic from './new';
+  import Topic from './topic';
 
   export default {
     components: {
-      NewTopic
+      NewTopic,
+      Topic
     },
     methods: mapActions(["getTopics"]),
     computed: mapState(["topics"]),

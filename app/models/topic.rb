@@ -1,4 +1,9 @@
 class Topic < ApplicationRecord
+  enum policy: POLICY_PARAMS
+
+  validates :title, presence: true
+  validates :content, presence: true
+
   def response
     {
       id: self.id,
@@ -7,8 +12,10 @@ class Topic < ApplicationRecord
       user_id: self.user_id,
       target_id: self.target_id,
       target_type: self.target_type,
-      policy_id: self.policy_id,
-      position: self.position
+      policy: self.policy,
+      position: self.position,
+      good: self.good,
+      bad: self.bad
     }
   end
 end
