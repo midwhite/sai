@@ -117,6 +117,10 @@
   #container .description p {
     margin: 0px;
   }
+  .copyright {
+    margin: 10px;
+    text-align: right;
+  }
   @media screen and (max-width: 767px){
     .menu-item {
       display: none;
@@ -229,15 +233,16 @@
           <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
           <div class="description">
             <p>Facebookの認証機能を用いて、なりすましを防ぎます。</p>
-            <p>もちろん他のユーザーから自分のFacebookアカウントが見えるようなことはありません。</p>
+            <p>問題のあるユーザーのアカウントが凍結された場合、運営側はFacebookのアカウントに紐付いて管理しているため、再度の侵入は困難です。</p>
           </div>
         </div>
 
         <div class="col-sm-4">
-          <h3>勝手な投稿なし</h3>
+          <h3>プライバシー保護</h3>
           <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
           <div class="description">
-            <p>ユーザー本人の許可なくSNSへ勝手に投稿することはありません。</p>
+            <p>もちろん他のユーザーから自分のFacebookアカウントが見えるようなことはありません。</p>
+            <p>また、ユーザー本人の許可なくSNSへ勝手に投稿することもありません。</p>
           </div>
         </div>
 
@@ -245,7 +250,7 @@
           <h3>管理者による監視</h3>
           <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
           <div class="description">
-            <p>管理者 <a href="https://twitter.com/midwhite/" target="_blank">@midwhite</a> の独断と偏見に基づき、言葉遣いが汚い投稿や他者を不快にさせる投稿・行動をするユーザーのアカウントを発見した場合、即凍結します。</p>
+            <p>本サイトは開発者・管理者である <a href="https://twitter.com/midwhite/" target="_blank">@midwhite</a> の独善と偏見と信頼に基づき運営方針を決定します。言葉遣いが汚い投稿や他者を不快にさせる投稿・行動をするユーザーのアカウントを発見した場合、即凍結します。</p>
           </div>
         </div>
       </div>
@@ -256,6 +261,9 @@
       <h2>利用三ヶ条</h2>
     </div>
   </section>
+  <footer id="footer">
+    <p class="copyright">Copyright 2017 by <a href="https://twitter.com/midwhite/" target="_blank">@midwhite</a></p>
+  </footer>
 </div>
 
 <script type="text/javascript">
