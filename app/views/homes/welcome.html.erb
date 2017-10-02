@@ -1,19 +1,23 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 <style type="text/css">
-  h1 {
+  #container h1 {
     margin: 0px;
     font-size: 18px;
     line-height: 2em;
   }
-  h2 {
+  #container h2 {
     margin: 0px;
     text-align: center;
   }
-  section {
+  #container h3 {
+    margin: 10px 0px;
+    text-align: center;
+  }
+  #container section {
     padding: 10px 10px 30px;
   }
-  section:nth-child(2n) {
+  #container section:nth-child(2n) {
     background: #212121;
     color: #FFF;
   }
@@ -68,7 +72,7 @@
     margin: auto;
     text-align: center;
   }
-  #firstview .description {
+  #firstview .version {
     margin: 0px;
     font-size: 18px;
     text-decoration: underline;
@@ -101,6 +105,12 @@
     color: #FFF;
     text-decoration: none;
   }
+  #container .description {
+    margin: 10px 0px;
+  }
+  #container .description p {
+    margin: 0px;
+  }
   @media screen and (max-width: 767px){
     .menu-item {
       display: none;
@@ -122,7 +132,7 @@
   }
 </style>
 
-<div class="container-fluid">
+<div id="container" class="container-fluid">
   <header id="header">
     <div class="logo col-sm-4">
       <h1>Social Action Initiatives</h1>
@@ -137,7 +147,7 @@
       <a href="#" data-link="security" class="menu-link">安心の理由</a>
     </div>
     <div class="col-sm-2 menu-item">
-      <a href="#" data-link="vision" class="menu-link">理念</a>
+      <a href="#" data-link="vision" class="menu-link">三ヶ条</a>
     </div>
     <div class="visible-xs menu-icon">
       <i class="icon ion-navicon-round"></i>
@@ -147,7 +157,7 @@
     <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
     <div class="overlay">
       <div class="content">
-        <p class="description">2017年衆議院総選挙版</p>
+        <p class="version">2017年衆議院総選挙版</p>
         <p class="title">Social Action Initiatives</p>
         <p class="copy">「知らない」から「決める」までを<br />支援するプラットフォーム</p>
         <a href="/users/auth/facebook" class="registration-btn">Facebookで認証</a>
@@ -157,11 +167,41 @@
   <section id="function" class="row">
     <div class="col-sm-12">
       <h2>機能</h2>
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>質問できる</h3>
+          <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
+          <div class="description">
+            <p>ユーザーが各政党の政策について質問を投稿することができます。また質問に対して、誰でもオープンにコメントで回答することができます。</p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <h3>説得できる</h3>
+          <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
+          <div class="description">
+            <p>様々な政党の政策について検討しているユーザーの質問に対して、コメントで自分が支持する政策の重要性を伝えることができます。</p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <h3>整理できる</h3>
+          <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
+          <div class="description">
+            <p>ユーザーの投稿を政党別や政策別にソートすることで、全体の論調を俯瞰的に把握することができます（開発中）。</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
   <section id="feature" class="row">
     <div class="col-sm-12">
       <h2>特徴</h2>
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>政策ベースで議論</h3>
+        </div>
+      </div>
     </div>
   </section>
   <section id="security" class="row">
@@ -171,7 +211,7 @@
   </section>
   <section id="vision" class="row">
     <div class="col-sm-12">
-      <h2>理念</h2>
+      <h2>利用三ヶ条</h2>
     </div>
   </section>
 </div>
