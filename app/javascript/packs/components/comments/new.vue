@@ -6,11 +6,9 @@
         <strong class="strong">{{parties[topic.target_id]}}</strong>
         <span>の</span>
         <strong class="strong">{{topic.policy}}</strong>
-        <span>に</span>
+        <span>について</span>
         <select name="comment[position]" class="input-sm">
-          <option value="1">賛成</option>
-          <option value="-1">反対</option>
-          <option value="0">質問</option>
+          <option v-for="(position, i) of positions" :value="i">{{position}}</option>
         </select>
       </div>
       <textarea name="comment[content]" rows="4" class="form-control" placeholder="コメント" required></textarea>
@@ -25,12 +23,13 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import { PARTY_PARAMS } from '../../constants';
+  import { PARTY_PARAMS, POSITION_PARAMS } from '../../constants';
 
   export default {
     props: ["topic", "replyTo"],
     computed: {
-      parties(){ return PARTY_PARAMS; }
+      parties(){ return PARTY_PARAMS; },
+      positions(){ return POSITION_PARAMS }
     },
     methods: {
       ...mapActions(["postComment"]),

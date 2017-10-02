@@ -1,5 +1,6 @@
 export const DUMMY_EMAIL_DOMAIN = "@facebook.com";
 export const API_DOMAIN = "https://www.social-action-initiatives.org";
+export const POSITION_PARAMS = ["解説", "質問", "支持", "批判"];
 export const POLICY_PARAMS = [
   "経済・金融",
   "財政",

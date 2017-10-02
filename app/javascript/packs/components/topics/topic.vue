@@ -4,7 +4,7 @@
       <strong>{{parties[topic.target_id]}}</strong>
       <span>の</span>
       <strong>{{topic.policy}}</strong>
-      <span>に</span>
+      <span>について</span>
       <strong class="strong">{{position}}</strong>
     </div>
     <h3>{{topic.title}}</h3>
@@ -29,7 +29,7 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import { PARTY_PARAMS } from '../../constants';
+  import { PARTY_PARAMS, POSITION_PARAMS } from '../../constants';
   import Comments from '../comments';
 
   export default {
@@ -42,9 +42,7 @@
     },
     computed: {
       parties(){ return PARTY_PARAMS; },
-      position(){
-        return ["反対", "質問", "賛成"][this.topic.position + 1];
-      }
+      position(){ return POSITION_PARAMS[this.topic.position]; }
     },
     components: {
       Comments

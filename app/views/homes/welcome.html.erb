@@ -56,6 +56,9 @@
   #firstview {
     position: relative;
   }
+  #firstview-image {
+    max-height: 600px;
+  }
   #firstview .overlay {
     position: absolute;
     top: 0px;
@@ -157,7 +160,7 @@
     </div>
   </header>
   <div id="firstview" class="row">
-    <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
+    <img src="<%= asset_path("general/top.jpg") %>" id="firstview-image" width="100%" />
     <div class="overlay">
       <div class="content">
         <p class="version">2017年衆議院総選挙版</p>

@@ -4,7 +4,7 @@
       <strong>{{party}}</strong>
       <span>の</span>
       <strong>{{topic.policy}}</strong>
-      <span>に</span>
+      <span>について</span>
       <strong>{{position}}</strong>
     </div>
     <div class="content">
@@ -14,15 +14,13 @@
 </template>
 
 <script>
-  import { PARTY_PARAMS } from '../../constants';
+  import { PARTY_PARAMS, POSITION_PARAMS } from '../../constants';
 
   export default {
     props: ["topic", "comment"],
     computed: {
-      party(){ return PARTY_PARAMS[this.topic.position + 1]; },
-      position(){
-        return ["反対", "質問", "賛成"][this.comment.position + 1];
-      }
+      party(){ return PARTY_PARAMS[this.topic.target_id]; },
+      position(){ return POSITION_PARAMS[this.comment.position]; }
     }
   }
 </script>

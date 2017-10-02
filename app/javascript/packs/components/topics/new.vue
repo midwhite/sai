@@ -10,11 +10,9 @@
         <select name="topic[policy]" id="new_topic_policy" class="input-sm">
           <option v-for="policy of policies">{{policy}}</option>
         </select>
-        <span>に</span>
+        <span>について</span>
         <select name="topic[position]" id="new_topic_position" class="input-sm">
-          <option value="1">賛成</option>
-          <option value="-1">反対</option>
-          <option value="0">質問</option>
+          <option v-for="(position, i) of positions" :value="i">{{position}}</option>
         </select>
       </div>
       <input type="text" name="topic[title]" id="new_topic_title" class="form-control" placeholder="件名" required />
@@ -29,7 +27,7 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import { PARTY_PARAMS, POLICY_PARAMS } from '../../constants';
+  import { PARTY_PARAMS, POLICY_PARAMS, POSITION_PARAMS } from '../../constants';
 
   export default {
     computed: {
@@ -38,6 +36,9 @@
       },
       parties(){
         return PARTY_PARAMS;
+      },
+      positions(){
+        return POSITION_PARAMS;
       }
     },
     methods: {

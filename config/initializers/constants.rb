@@ -1,5 +1,6 @@
 module Constants
   DUMMY_EMAIL_DOMAIN = "@facebook.com"
+  POSITION_PARAMS = ["解説", "質問", "支持", "批判"]
   POLICY_PARAMS = [
     "経済・金融",
     "財政",
