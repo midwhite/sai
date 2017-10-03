@@ -7,7 +7,7 @@
     line-height: 2em;
   }
   #container h2 {
-    margin: 0px;
+    margin: 20px 0px 10px;
     text-align: center;
   }
   #container h3 {
@@ -33,17 +33,17 @@
     box-shadow: 0px 1px 3px rgba(0,0,0,.5);
     z-index: 3;
   }
-  .menu-item {
+  #header .menu-item {
     padding: 0px;
     text-align: center;
   }
-  .menu-link {
+  #header .menu-link {
     padding: 8px 0px;
     display: block;
     cursor: pointer;
     transition: all .5s 0s ease;
   }
-  .menu-link:hover {
+  #header .menu-link:hover {
     background: #EEE;
     text-decoration: none;
   }
@@ -99,16 +99,18 @@
     width: 50%;
     padding: 8px 0px;
     margin: 0px auto;
-    border: 1px solid #FFF;
+    border: 1px solid rgba(255,255,255,.3);
     border-radius: 3px;
     background: #3b5998;
     color: #FFF;
     font-size: 24px;
     text-align: center;
     display: block;
+    transition: all .3s 0s ease;
   }
   .registration-btn:hover {
     color: #FFF;
+    background: #27417A;
     text-decoration: none;
   }
   #container .description {
@@ -116,6 +118,10 @@
   }
   #container .description p {
     margin: 0px;
+  }
+  .contentBox {
+    width: 80%;
+    margin: 0px auto;
   }
   .copyright {
     margin: 10px;
@@ -139,6 +145,9 @@
       width: 70%;
       font-size: 18px;
     }
+    .contentBox {
+      width: 100%;
+    }
   }
 </style>
 
@@ -157,7 +166,7 @@
       <a href="#" data-link="security" class="menu-link">安心の理由</a>
     </div>
     <div class="col-sm-2 menu-item">
-      <a href="#" data-link="vision" class="menu-link">三ヶ条</a>
+      <a href="#" data-link="term" class="menu-link">利用規約</a>
     </div>
     <div class="visible-xs menu-icon">
       <i class="icon ion-navicon-round"></i>
@@ -190,7 +199,7 @@
           <h3>解説できる</h3>
           <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
           <div class="description">
-            <p>様々な政党の政策について検討しているユーザーに対して、コメントで自分が支持する政策の重要性を解説することができます。</p>
+            <p>様々な政党の政策について検討しているユーザーに対して、自分が分かる分野について解説することができます。</p>
             <p>選挙は自分1人の1票などでは変わりません。1人でも多くの相手を説得し、10人の10票、100人の100票と団結して政治に対する権利を行使しましょう。</p>
           </div>
         </div>
@@ -199,7 +208,7 @@
           <h3>議論できる</h3>
           <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
           <div class="description">
-            <p>また各政党の政策について支持や不支持を表明することで、</p>
+            <p>また各政党の政策について支持や不支持の理由を表明することで、自分が支持する政策の重要性を解説することができるだけでなく、同じ政党・政策に対して不支持の人から理由を聞くことで、異なる意見と出会うことができます。</p>
           </div>
         </div>
       </div>
@@ -250,15 +259,19 @@
           <h3>管理者による監視</h3>
           <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
           <div class="description">
-            <p>本サイトは開発者・管理者である <a href="https://twitter.com/midwhite/" target="_blank">@midwhite</a> の独善と偏見と信頼に基づき運営方針を決定します。言葉遣いが汚い投稿や他者を不快にさせる投稿・行動をするユーザーのアカウントを発見した場合、即凍結します。</p>
+            <p>本サイトは開発者・管理者である <a href="https://twitter.com/midwhite/" target="_blank">@midwhite</a> の独善と偏見と信頼に基づいて運営方針を決定します。言葉遣いが汚い投稿や他者を不快にさせる投稿・行動をするユーザーのアカウントを発見した場合、即凍結します。</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section id="vision" class="row">
+  <section id="term" class="row">
     <div class="col-sm-12">
-      <h2>利用三ヶ条</h2>
+      <h2>利用規約</h2>
+      <div class="contentBox">
+        <p>一、政治に万人にとっての正解はありません。自分にとっての正解が必ずしも相手にとっての正解ではないことを理解した上で、相手が意見を持つに至った背景や基準を考えながら、丁寧に誠実に議論してください。</p>
+        <p>二、政治的な議論は、時に熱くなり、相手を傷つけがちです。ユーザーが他のユーザーを不快にさせる、傷つける言動や行動を取っている場合、管理者の判断に基づき、投稿の削除やアカウントの凍結、場合によっては法的措置を講じることがあります。</p>
+      </div>
     </div>
   </section>
   <footer id="footer">
