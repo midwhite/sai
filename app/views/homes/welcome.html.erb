@@ -24,6 +24,15 @@
     background: #212121;
     color: #FFF;
   }
+  #container strong {
+    font-size: 1.2em;
+  }
+  #container section:nth-child(2n-1) strong {
+    color: #E91E63;
+  }
+  #container section:nth-child(2n) strong {
+    color: #FFEE58;
+  }
   #header {
     position: fixed;
     top: 0px;
@@ -92,11 +101,6 @@
     font-size: 36px;
   }
   .registration-btn {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    width: 50%;
     padding: 8px 0px;
     margin: 0px auto;
     border: 1px solid rgba(255,255,255,.3);
@@ -113,6 +117,17 @@
     background: #27417A;
     text-decoration: none;
   }
+  #firstview .registration-btn {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 50%;
+  }
+  #statement .registration-btn {
+    width: 80%;
+    margin: 40px auto 20px;
+  }
   #container .description {
     margin: 10px 0px;
   }
@@ -122,6 +137,8 @@
   .contentBox {
     width: 80%;
     margin: 0px auto;
+    font-size: 18px;
+    text-indent: .5em;
   }
   .copyright {
     margin: 10px;
@@ -166,7 +183,7 @@
       <a href="#" data-link="security" class="menu-link">安心の理由</a>
     </div>
     <div class="col-sm-2 menu-item">
-      <a href="#" data-link="term" class="menu-link">利用規約</a>
+      <a href="#" data-link="statement" class="menu-link">声明</a>
     </div>
     <div class="visible-xs menu-icon">
       <i class="icon ion-navicon-round"></i>
@@ -179,7 +196,7 @@
         <p class="version">2017年衆議院総選挙版</p>
         <p class="title">Social Action Initiatives</p>
         <p class="copy">「知らない」から「決める」までを<br />支援するプラットフォーム</p>
-        <a href="/users/auth/facebook" class="registration-btn">Facebookで認証</a>
+        <a href="/users/auth/facebook" class="registration-btn">Facebookで参加</a>
       </div>
     </div>
   </div>
@@ -191,7 +208,8 @@
           <h3>質問できる</h3>
           <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
           <div class="description">
-            <p>ユーザーが各政党の政策について質問を投稿することができます。また質問に対して、誰でもオープンにコメントで回答することができます。</p>
+            <p>ユーザーが各政党の政策について質問を投稿することができます。また質問に対しては、他のユーザーがオープンにコメントで回答できます。</p>
+            <p>多くの人の質問を見れば、他の人々がどのような領域にどのような理由で関心を持っているかが分かり、参考になるでしょう。</p>
           </div>
         </div>
 
@@ -199,8 +217,8 @@
           <h3>解説できる</h3>
           <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
           <div class="description">
-            <p>様々な政党の政策について検討しているユーザーに対して、自分が分かる分野について解説することができます。</p>
-            <p>選挙は自分1人の1票などでは変わりません。1人でも多くの相手を説得し、10人の10票、100人の100票と団結して政治に対する権利を行使しましょう。</p>
+            <p>様々な政党の政策について検討している訪問者に対して、自分が分かる分野について解説することができます。</p>
+            <p>選挙はあなた1人の1票だけでは変わりません。1人でも多くの相手を説得し、10人の10票、100人の100票と団結して政治に対する権利を行使しましょう。</p>
           </div>
         </div>
 
@@ -221,13 +239,17 @@
         <div class="col-sm-4">
           <h3>政策ベースで議論</h3>
           <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
+          <div class="description">
+            <p>本サイトではあくまで「政策」に注目して質問や議論を展開します。全ての投稿は「政党」と「政策領域」を指定した上で「質問・解説・支持・批判」という立場で行います。</p>
+            <p>不倫や賄賂など、様々な疑惑は確かに投票先を決める際の1つの参考になるかもしれませんが、このサイトでは扱いません。それらの要素が含まれる投稿は削除されることがあります。</p>
+          </div>
         </div>
         <div class="col-sm-4">
-          <h3>価値中立ベースで議論</h3>
+          <h3>説得を目的に議論</h3>
           <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
           <div class="description">
-            <p>議論はあくまで「価値中立的」に行います。政治的な判断は当人の正誤・善悪に基づくのではなく、最終的には「共感する／反発する」の違いしかありません。</p>
-            <p>従って、「相手が間違っている、悪徳な思想に基づいている」と決め付けるのではなく、なぜ自分と相手にその判断の違いが生まれるのかを遡って考えて「説得する」という姿勢で議論してください。</p>
+            <p>本サイトでの議論は、あくまで相手の論理的な説得を目的に行います。自らの知識を開陳して相手を嘲ったり、異なる考え方を持つ相手を悪徳と糾弾することを目的としてはいけません。</p>
+            <p>投票権は知識の多寡に関わらず、全員が1票ずつ持っています。相手を貶めるのではなく、仲間にするという姿勢で誠実に議論しましょう。</p>
           </div>
         </div>
       </div>
@@ -259,19 +281,24 @@
           <h3>管理者による監視</h3>
           <img src="<%= asset_path("general/top.jpg") %>" width="100%" />
           <div class="description">
-            <p>本サイトは開発者・管理者である <a href="https://twitter.com/midwhite/" target="_blank">@midwhite</a> の独善と偏見と信頼に基づいて運営方針を決定します。言葉遣いが汚い投稿や他者を不快にさせる投稿・行動をするユーザーのアカウントを発見した場合、即凍結します。</p>
+            <p>本サイトは開発者・管理者である <a href="https://twitter.com/midwhite/" target="_blank">@midwhite</a> の独善と偏見と信頼に基づいて運営方針を決定します。言葉遣いが汚い投稿や他者を不快にさせる投稿・行動をするユーザーなど、利用が不適切と判断されるアカウントを発見した場合、即凍結します。</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section id="term" class="row">
+  <section id="statement" class="row">
     <div class="col-sm-12">
-      <h2>利用規約</h2>
+      <h2>声明</h2>
       <div class="contentBox">
-        <p>一、政治に万人にとっての正解はありません。自分にとっての正解が必ずしも相手にとっての正解ではないことを理解した上で、相手が意見を持つに至った背景や基準を考えながら、丁寧に誠実に議論してください。</p>
-        <p>二、政治的な議論は、時に熱くなり、相手を傷つけがちです。ユーザーが他のユーザーを不快にさせる、傷つける言動や行動を取っている場合、管理者の判断に基づき、投稿の削除やアカウントの凍結、場合によっては法的措置を講じることがあります。</p>
+        <p>よく「若者の投票率が低いから若者向けの政策が議題に上がらない。投票率を上げなければならない。」と言われます。芸能人までも含めて、多くの人がこの論調に乗り、「投票することはいいことだ」「投票に行かないと公言する人は論破できる」などと豪語する始末です。しかし、本当にそうなのでしょうか？僕には、とてもそうとは思えません。</p>
+        <p>高齢者向けの政策が多いことは事実ですし、そういった政策を掲げることが得票に繋がることもまた事実だと思います。しかし、それは高齢化社会において、そういった政策を必要としている人が多いからそうなっている、というだけ話でもあります。</p>
+        <p>さらに「若者向けの政策」と言っても、それは一体どのような政策なのでしょうか？「若者」の中にも、ベンチャー企業の経営者やニート、農村に住む人や都市に住む人、未婚者や子育て中の人、派遣社員やシングルマザー、大黒柱を目指す人やセクシャルマイノリティの人など、多様な人々が含まれます。そういった人々をひとまとめに「若者」と言う人は、そうすることで自分の期待する政策を応援する仲間に組み入れようとしているだけなのではないかと思います。</p>
+        <p>ある人の政治的立場は、その人が「若者」であるかどうかだけでなく、より広く、どのような社会的属性を持つかに依存します。そうした時、「若者」の中だけでまとまろうとするのではなく、自分と近い利害関係を持つ仲間を見つけ、さらに説得により仲間を増やしていく必要があります。</p>
+        <p>「あなたの1票で政治は変わる」なんて綺麗事は、大嘘です。あなたの1票だけでは決して社会は動きません。しかし、同じ利害関係を持つ者同士で団結して、100人の100票、1,000人の1,000票を同じ候補者に対して投じれば、それは社会を動かす力になります。何より、その票を欲しがる候補者を相手に、自分たちの求める政策の実現を要求することができます。</p>
+        <p>本サイト「Social Action Initiatives」は、まさにそうした「説得と団結」のプラットフォームを目指しています。「政治についてはまだよく分からないけれど、関心はある。どの候補に投票すべきか考えたい。」という方の初動から、「自分が求める政策を政治に要求するためのチームに参加する」までを支援する。それがSocial Action Initiativesの存在意義です。</p>
       </div>
+      <a href="/users/auth/facebook" class="registration-btn">Facebookで参加</a>
     </div>
   </section>
   <footer id="footer">

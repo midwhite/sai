@@ -65,7 +65,7 @@ export default {
     top: 0px;
     left: 0px;
     width: 100%;
-    background: #FFF;
+    background: rgba(255,255,255,.7);
     box-shadow: 0px 1px 3px rgba(0,0,0,.5);
     z-index: 3;
   }
