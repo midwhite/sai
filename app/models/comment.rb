@@ -4,6 +4,9 @@ class Comment < ApplicationRecord
   validates :content,  presence: true
 
   belongs_to :topic
+  has_many :ogps, dependent: :destroy
+
+  after_save :get_ogp
 
   def response
     {
@@ -15,5 +18,10 @@ class Comment < ApplicationRecord
       reply_to: self.reply_to,
       created_at: self.created_at.strftime("%Y年%m月%d日 %H:%M")
     }
+  end
+
+  private
+  def get_ogp
+    Ogp.get_info(self, :comment)
   end
 end

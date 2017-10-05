@@ -6,6 +6,9 @@ class Topic < ApplicationRecord
   validates :content, presence: true
 
   has_many :comments, dependent: :destroy
+  has_many :ogps,     dependent: :destroy
+
+  after_save :get_ogp
 
   def response
     {
@@ -21,5 +24,10 @@ class Topic < ApplicationRecord
       bad: self.bad,
       comments: []
     }
+  end
+
+  private
+  def get_ogp
+    Ogp.get_info(self, :topic)
   end
 end
