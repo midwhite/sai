@@ -24,5 +24,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get '*path', to: 'application#render_404'
+  get '*path', to: 'homes#index'
 end
