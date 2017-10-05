@@ -1,5 +1,6 @@
 <template>
   <div class="topic">
+    <p class="post-time">{{topic.created_at}}</p>
     <div class="topic-tags">
       <strong>{{parties[topic.target_id]}}</strong>
       <span>の</span>
@@ -94,5 +95,9 @@
   }
   .open-content-btn:hover {
     text-decoration: underline;
+  }
+  .post-time {
+    margin: 5px;
+    text-align: right;
   }
 </style>

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
     resources :users do
       collection do
-        delete 'sign_out'
+        get 'me'
       end
     end
   end

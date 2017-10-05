@@ -1,6 +1,11 @@
 import axios from './axios';
 
 export default {
+  getCurrentUser(context){
+    axios.get("/users/me").then(({data}) => {
+      context.commit("setCurrentUser", { currentUser: data.user });
+    });
+  },
   getTopics(context){
     axios.get("/topics").then(({data}) => {
       context.commit("addTopic", data.topics);

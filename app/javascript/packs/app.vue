@@ -9,15 +9,22 @@
 </template>
 
 <script>
-import HeaderMenu from './components/header';
-import FooterMenu from './components/footer';
+  import { mapActions } from 'vuex';
+  import HeaderMenu     from './components/header';
+  import FooterMenu     from './components/footer';
 
-export default {
-  components: {
-    HeaderMenu,
-    FooterMenu
+  export default {
+    components: {
+      HeaderMenu,
+      FooterMenu
+    },
+    methods: {
+      ...mapActions(["getCurrentUser"])
+    },
+    created(){
+      this.getCurrentUser();
+    }
   }
-}
 </script>
 
 <style scoped>

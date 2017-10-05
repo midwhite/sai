@@ -20,6 +20,7 @@ class Topic < ApplicationRecord
       target_type: self.target_type,
       policy: self.policy,
       position: self.position,
+      created_at: self.created_at.strftime("%Y年%-m月%-d日 %H:%M"),
       good: self.good,
       bad: self.bad,
       comments: []

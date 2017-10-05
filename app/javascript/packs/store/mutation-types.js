@@ -1,4 +1,7 @@
 export default {
+  setCurrentUser(state, params){
+    state.currentUser = params.currentUser;
+  },
   addTopic(state, topics){
     state.topics.unshift(...topics);
   },
