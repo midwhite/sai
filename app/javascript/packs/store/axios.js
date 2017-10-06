@@ -24,10 +24,12 @@ export default {
   },
   put(path, params = {}){
     const url = API_URL_BASE + path;
+    params.append("_method", "PUT");
     return axios.put(url, setToken(params));
   },
   delete(path, params = {}){
     const url = API_URL_BASE + path;
-    return axios.delete(url, { data: setToken(params) });
+    params.append("_method", "DELETE");
+    return axios.post(url, { data: setToken(params) });
   },
 }
