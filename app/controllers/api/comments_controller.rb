@@ -2,8 +2,14 @@ class Api::CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    comments = Comment.order(id: :asc)
-    render json: { comments: comments.map(&:response) }
+    comments = Comment.order(id: :asc).map(&:response)
+    articles = Ogp.where(target_type: "comment").map(&:response)
+
+    comments.map do |comment|
+      comment[:articles] = articles.select{|article| article[:comment_id] === comment[:id] }
+    end
+
+    render json: { comments: comments }
   end
 
   def create

@@ -1,5 +1,5 @@
 <template>
-    <div class="articles">
+  <div class="articles">
     <div v-for="article of target.articles" class="row article">
       <div class="col-sm-3">
         <div class="ogp-image" :style="'background-image: url('+article.image+');'">

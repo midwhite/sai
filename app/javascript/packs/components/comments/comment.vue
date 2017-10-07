@@ -11,14 +11,19 @@
       <p v-for="sentense of comment.content.split(/\n|\r|\r\n/)">{{sentense}}</p>
     </div>
     <p class="post-time">{{comment.created_at}}</p>
+    <Articles :target="comment" />
   </div>
 </template>
 
 <script>
   import { PARTY_PARAMS, POSITION_PARAMS } from '../../constants';
+  import Articles from '../articles';
 
   export default {
     props: ["topic", "comment"],
+    components: {
+      Articles
+    },
     computed: {
       party(){ return PARTY_PARAMS[this.topic.target_id]; },
       position(){ return POSITION_PARAMS[this.comment.position]; }
@@ -32,6 +37,9 @@
     border: solid #CCC;
     border-width: 0px 1px 1px;
     background: #EEE;
+  }
+  .content {
+    overflow: hidden;
   }
   .content p {
     margin: 0px;
