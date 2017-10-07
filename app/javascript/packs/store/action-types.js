@@ -6,6 +6,12 @@ export default {
       context.commit("setCurrentUser", { currentUser: data.user });
     });
   },
+  getNotifications(context){
+    axios.get("/notifications").then(({data}) => {
+      console.log(data);
+      context.commit("setNotifications", { notifications: data.notifications });
+    });
+  },
   getTopics(context){
     axios.get("/topics").then(({data}) => {
       context.commit("addTopic", data.topics);

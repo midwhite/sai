@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   acts_as_paranoid
 
+  has_many :notifications
+  has_many :topics
+  has_many :comments
+
   def me
     {
       name: self.name,

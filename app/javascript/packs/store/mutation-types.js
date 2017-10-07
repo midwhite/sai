@@ -2,6 +2,9 @@ export default {
   setCurrentUser(state, params){
     state.currentUser = params.currentUser;
   },
+  setNotifications(state, params){
+    state.notifications = params.notifications;
+  },
   addTopic(state, topics){
     state.topics.unshift(...topics);
   },

@@ -14,7 +14,7 @@ Vue.use(VueRouter);
 import './assets/css/application';
 
 window.addEventListener("DOMContentLoaded", ()=>{
-  const vm = new Vue({
+  new Vue({
     el: "#application",
     store: new Vuex.Store(store),
     router: new VueRouter(routes),

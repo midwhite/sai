@@ -15,6 +15,7 @@ class Api::CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     if comment.save
+      Notification.new_comment(comment)
       render status: :created, json: { comment: comment.response }
     else
       render json: { messages: comment.errors.full_messages }

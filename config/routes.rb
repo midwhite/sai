@@ -22,6 +22,8 @@ Rails.application.routes.draw do
         get 'me'
       end
     end
+
+    get 'notifications', to: 'users#notifications'
   end
 
   get '*path', to: 'application#render_404'

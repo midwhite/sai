@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   validates :topic_id, presence: true
   validates :content,  presence: true
 
+  belongs_to :user
   belongs_to :topic
   has_many :ogps, dependent: :destroy
 

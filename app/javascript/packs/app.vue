@@ -19,10 +19,14 @@
       FooterMenu
     },
     methods: {
-      ...mapActions(["getCurrentUser"])
+      ...mapActions(["getCurrentUser", "getNotifications"])
     },
     created(){
       this.getCurrentUser();
+      this.getNotifications();
+    },
+    updated(){
+      this.getNotifications();
     }
   }
 </script>

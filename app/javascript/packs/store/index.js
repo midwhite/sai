@@ -2,8 +2,9 @@ import actions from './action-types';
 import mutations from './mutation-types';
 
 const state = {
-  topics: [],
+  currentUser: {},
   notifications: [],
+  topics: [],
   goodTopics: [],
   badTopics: []
 };
