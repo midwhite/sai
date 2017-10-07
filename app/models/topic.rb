@@ -8,7 +8,7 @@ class Topic < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :ogps,     dependent: :destroy
 
-  after_save :get_ogp
+  after_save :set_articles
 
   def response
     {
@@ -23,12 +23,17 @@ class Topic < ApplicationRecord
       created_at: self.created_at.strftime("%Y年%-m月%-d日 %H:%M"),
       good: self.good,
       bad: self.bad,
-      comments: []
+      comments: [],
+      articles: self.articles
     }
   end
 
+  def articles
+    (@articles || []).map(&:response)
+  end
+
   private
-  def get_ogp
-    Ogp.get_info(self, :topic)
+  def set_articles
+    @articles = Ogp.get_info(self, :topic)
   end
 end

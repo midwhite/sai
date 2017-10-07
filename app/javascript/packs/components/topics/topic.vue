@@ -19,6 +19,7 @@
         <div v-if="topic.content.length >= 100 && !this.openContent" class="open-content-btn" @click="toggleContent">>> 全文を見る</div>
       </div>
     </div>
+    <Articles :target="topic" />
     <div class="topic-operation">
       <div class="operation-panel" :data-topic-id="topic.id" @click="makeGood">Good x{{topic.good}}</div>
       <div class="operation-panel" :data-topic-id="topic.id" @click="makeBad">Bad x{{topic.bad}}</div>
@@ -32,6 +33,7 @@
   import { mapActions } from 'vuex';
   import { PARTY_PARAMS, POSITION_PARAMS } from '../../constants';
   import Comments from '../comments';
+  import Articles from '../articles';
 
   export default {
     props: ["topic"],
@@ -46,7 +48,8 @@
       position(){ return POSITION_PARAMS[this.topic.position]; }
     },
     components: {
-      Comments
+      Comments,
+      Articles
     },
     methods: {
       ...mapActions(["makeGood", "makeBad"]),
@@ -68,7 +71,8 @@
     background: #FFF;
   }
   .description {
-    color: #888;
+    color: #212121;
+    overflow: hidden;
   }
   .topic-operation {
     display: flex;

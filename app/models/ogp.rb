@@ -1,9 +1,23 @@
 class Ogp < ApplicationRecord
+  def response
+    res = {
+      id: self.id,
+      url: self.url,
+      title: self.title,
+      description: self.description,
+      image: self.image
+    }
+    key = "#{self.target_type}_id".to_sym
+    res[key] = self.target_id
+    return res
+  end
+
   def self.get_info(record, target_type)
     require "open-uri"
     require "nokogiri"
 
-    regexp = Regexp.new("https?://[\w/:%#\$&\?\(\)~\.=\+\-]+")
+    articles = []
+
     URI.extract(record.content).each do |url|
       ogp = self.new
       ogp.target_type = target_type
@@ -28,10 +42,12 @@ class Ogp < ApplicationRecord
 
         # スクレイピング結果の保存
         ogp.save!
+        articles << ogp
       rescue => e
         p e
         next
       end
     end
+    articles
   end
 end

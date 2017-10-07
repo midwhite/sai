@@ -22,6 +22,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'acts_as_paranoid', github: 'ActsAsParanoid/acts_as_paranoid'
 
+gem 'aws-sdk'
+
 gem 'dotenv-rails'
 
 group :development, :test do
