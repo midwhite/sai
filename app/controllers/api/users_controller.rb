@@ -5,6 +5,11 @@ class Api::UsersController < ApplicationController
     render json: { user: current_user.me }
   end
 
+  def show
+    user = User.find(params[:id])
+    render json: { user: user.response }
+  end
+
   def update
     current_user.attributes = user_params
     current_user.registered_at = Time.zone.now if current_user.registered_at.blank?

@@ -96,6 +96,7 @@
       onSubmit(e){
         e.preventDefault();
         this.editUser(new FormData(e.target));
+        this.$router.push(`/users/${this.currentUser.id}`);
       }
     }
   }

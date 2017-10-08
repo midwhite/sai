@@ -11,12 +11,10 @@ class User < ApplicationRecord
   has_many :topics
   has_many :comments
 
-  def me
+  def response
     {
       id: self.id,
       name: self.name,
-      email: self.email,
-      uid: self.uid,
       gender: self.gender,
       birth_year: self.birth_year,
       area: self.area,
@@ -26,9 +24,16 @@ class User < ApplicationRecord
       photo: self.photo,
       policy_field: self.policy_field,
       team_id: self.team_id,
-      profile: self.profile,
-      twitter_id: self.twitter_id
+      profile: self.profile
     }
+  end
+
+  def me
+    self.response.merge(
+      email: self.email,
+      uid: self.uid,
+      twitter_id: self.twitter_id
+    )
   end
 
   def self.from_omniauth(auth)
