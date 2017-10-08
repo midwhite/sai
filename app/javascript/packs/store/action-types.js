@@ -6,6 +6,12 @@ export default {
       context.commit("setCurrentUser", { currentUser: data.user });
     });
   },
+  editUser(context, params){
+    const userId = context.state.currentUser.id;
+    axios.put(`/users/${userId}`, params).then(({data}) => {
+      context.commit("setCurrentUser", { currentUser: data.user });
+    });
+  },
   getNotifications(context){
     axios.get("/notifications").then(({data}) => {
       context.commit("setNotifications", { notifications: data.notifications });

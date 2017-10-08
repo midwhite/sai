@@ -13,19 +13,21 @@ class User < ApplicationRecord
 
   def me
     {
+      id: self.id,
       name: self.name,
       email: self.email,
       uid: self.uid,
       gender: self.gender,
-      district: self.district,
-      area: self.area,
-      job: self.job,
-      industry: self.industry,
       birth_year: self.birth_year,
-      support_for: self.support_for,
-      support_type: self.support_type,
-      twitter_id: self.twitter_id,
-      profile: self.profile
+      area: self.area,
+      district: self.district,
+      industry: self.industry,
+      job: self.job,
+      photo: self.photo,
+      policy_field: self.policy_field,
+      team_id: self.team_id,
+      profile: self.profile,
+      twitter_id: self.twitter_id
     }
   end
 

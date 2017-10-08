@@ -34,6 +34,7 @@
       <div class="col-sm-1 header-menu-item">
         <router-link to="/settings" class="header-menu-link">
           <i class="icon ion-gear-b menu-icon"></i>
+          <p class="menu-text visible-xs">settings</p>
         </router-link>
       </div>
     </div>

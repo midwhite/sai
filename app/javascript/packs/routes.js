@@ -4,6 +4,7 @@ import Dictionary    from './components/dictionaries';
 import Teams         from './components/teams';
 import Notifications from './components/notifications';
 import Settings      from './components/settings';
+import EditProfile   from './components/settings/profile';
 import PageNotFound  from './components/not_found';
 
 const routes = {
@@ -15,6 +16,7 @@ const routes = {
     { path: "/teams",         component: Teams },
     { path: "/notifications", component: Notifications },
     { path: "/settings",      component: Settings },
+    { path: "/settings/profile", component: EditProfile },
     { path: "*",              component: PageNotFound }
   ]
 };

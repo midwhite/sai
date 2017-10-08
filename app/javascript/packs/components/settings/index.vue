@@ -1,6 +1,17 @@
 <template>
-  <div style="padding: 10px;">
-    <button class="btn btn-danger" @click="signOut">ログアウト</button>
+  <div id="settings" class="row">
+    <div class="col-xs-4">
+      <router-link to="/settings/profile" class="settings-menu-link">
+        <i class="icon ion-person"></i>
+        <p class="settings-menu">Edit Profile</p>
+      </router-link>
+    </div>
+    <div class="col-xs-4">
+      <a href="#/" class="settings-menu-link" @click="signOut">
+        <i class="icon ion-log-out"></i>
+        <p class="settings-menu">Sign Out</p>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -20,3 +31,22 @@
     }
   }
 </script>
+
+<style scoped>
+  #settings {
+    background: #FFF;
+    min-height: 400px;
+  }
+  .settings-menu-link {
+    padding: 10px 0px 1px;
+    text-align: center;
+    display: block;
+    transition: all .3s 0s ease;
+  }
+  .settings-menu-link:hover {
+    background: #EEE;
+  }
+  .settings-menu-link .icon {
+    font-size: 20px;
+  }
+</style>
