@@ -22,7 +22,9 @@
     methods: mapActions(["getTopics"]),
     computed: mapState(["topics"]),
     mounted(){
-      this.getTopics();
+      if(this.topics.length === 0){
+        this.getTopics();
+      }
     }
   }
 </script>

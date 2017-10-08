@@ -8,7 +8,11 @@ export default {
   },
   getNotifications(context){
     axios.get("/notifications").then(({data}) => {
-      console.log(data);
+      context.commit("setNotifications", { notifications: data.notifications });
+    });
+  },
+  openNotifications(context){
+    axios.get("/notifications", { read: true }).then(({data}) => {
       context.commit("setNotifications", { notifications: data.notifications });
     });
   },

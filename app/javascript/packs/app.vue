@@ -35,4 +35,9 @@
   #contentBox {
     margin-top: 60px;
   }
+  @media screen and (max-width: 767px){
+    #contentBox {
+      margin-top: 40px;
+    }
+  }
 </style>

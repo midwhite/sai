@@ -36,11 +36,11 @@
   import Articles from '../articles';
 
   export default {
-    props: ["topic"],
+    props: ["topic", "initiallyOpenComments"],
     data(){
       return {
         openContent: false,
-        openComment: false
+        openComment: !!this.initiallyOpenComments
       };
     },
     computed: {

@@ -7,6 +7,10 @@ strong {
   font-size: 1.3em
 }
 
+a:hover, a:focus {
+  text-decoration: none;
+}
+
 .btn-submit {
   width: 100px;
   padding: 0px;

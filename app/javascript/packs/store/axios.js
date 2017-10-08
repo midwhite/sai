@@ -16,7 +16,7 @@ const setToken = params => {
 export default {
   get(path, params = {}){
     const url = API_URL_BASE + path;
-    return axios.get(url, params);
+    return axios.get(url, { params });
   },
   post(path, params = {}){
     const url = API_URL_BASE + path;
