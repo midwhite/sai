@@ -7,8 +7,8 @@ const state = {
   topics: [],
   goodTopics: [],
   badTopics: [],
-  sortTopics: "newer",
   filterTopics: {
+    sort: "newer",
     policy: "",
     party: "",
     position: ""
@@ -17,7 +17,7 @@ const state = {
 
 const getters = {
   filteredTopics(state){
-    return state.topics.filter(topic => {
+    let topics = state.topics.filter(topic => {
       if(state.filterTopics.policy !== "" && state.filterTopics.policy !== topic.policy){
         return false;
       }
@@ -28,6 +28,18 @@ const getters = {
         return false;
       }
       return true;
+    });
+    return topics.sort((n1, n2) => {
+      switch(state.filterTopics.sort){
+        case "newer":
+          return n1.id > n2.id ? -1 : 1;
+        case "good":
+          return n1.good > n2.good ? -1 : 1;
+        case "bad":
+          return n1.bad > n2.bad ? -1 : 1;
+        default:
+          break;
+      }
     });
   }
 };

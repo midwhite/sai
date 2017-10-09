@@ -23,7 +23,7 @@
       <div class="col-sm-12">
         <div class="panel-content">
           <p>ソート</p>
-          <select id="sort_panel_policy" class="input-sm form-control" v-model="sortTopics">
+          <select id="sort_panel_policy" class="input-sm form-control" v-model="filterTopics.sort">
             <option value="newer">新着順</option>
             <option value="good">Goodが多い順</option>
             <option value="bad">Badが多い順</option>
