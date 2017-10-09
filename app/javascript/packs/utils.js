@@ -5,5 +5,5 @@ export const random = (num) => {
 };
 
 export const imagePath = (path) => {
-  return CDN_DOMAIN + "/assets/images" + path;
+  return CDN_DOMAIN + "/assets/images" + path + "?_=" + new Date().getTime();
 };
