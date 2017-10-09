@@ -7,7 +7,7 @@ class Comment < ApplicationRecord
   belongs_to :topic
   has_many :ogps, dependent: :destroy
 
-  after_save :set_articles
+  after_create :set_articles
 
   def response
     {
@@ -26,7 +26,6 @@ class Comment < ApplicationRecord
     (@articles || []).map(&:response)
   end
 
-  private
   def set_articles
     @articles = Ogp.get_info(self, :comment)
   end

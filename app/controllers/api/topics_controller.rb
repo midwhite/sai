@@ -25,16 +25,22 @@ class Api::TopicsController < ApplicationController
 
   def good
     topic = Topic.find(params[:id])
+    articles = Ogp.where(target_type: "topic", target_id: topic.id).map(&:response)
+
     topic.good += 1
     topic.save
-    render json: { topic: topic }
+
+    render json: { topic: topic.response.merge(articles: articles) }
   end
 
   def bad
     topic = Topic.find(params[:id])
+    articles = Ogp.where(target_type: "topic", target_id: topic.id).map(&:response)
+
     topic.bad += 1
     topic.save
-    render json: { topic: topic }
+
+    render json: { topic: topic.response.merge(articles: articles) }
   end
 
   private

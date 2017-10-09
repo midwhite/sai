@@ -7,7 +7,7 @@ class Topic < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :ogps,     dependent: :destroy
 
-  after_save :set_articles
+  after_create :set_articles
 
   def response
     {

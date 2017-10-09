@@ -6,10 +6,31 @@ const state = {
   notifications: [],
   topics: [],
   goodTopics: [],
-  badTopics: []
+  badTopics: [],
+  sortTopics: "newer",
+  filterTopics: {
+    policy: "",
+    party: "",
+    position: ""
+  }
 };
 
-const getters = {};
+const getters = {
+  filteredTopics(state){
+    return state.topics.filter(topic => {
+      if(state.filterTopics.policy !== "" && state.filterTopics.policy !== topic.policy){
+        return false;
+      }
+      if(state.filterTopics.party !== "" && state.filterTopics.party !== topic.target_id){
+        return false;
+      }
+      if(state.filterTopics.position !== "" && state.filterTopics.position !== topic.position){
+        return false;
+      }
+      return true;
+    });
+  }
+};
 
 const store = {
   state,
