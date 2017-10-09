@@ -144,6 +144,14 @@
     margin: 10px;
     text-align: right;
   }
+  #share-button {
+    padding: 10px 0px;
+    overflow: hidden;
+  }
+  #share-button .fb-share-button {
+    position: relative;
+    top: -4px;
+  }
   @media screen and (max-width: 767px){
     .menu-item {
       display: none;
@@ -312,6 +320,11 @@
     </div>
   </section>
   <footer id="footer">
+    <div id="share-button">
+      <div class="fb-share-button" data-href="<%= root_url %>" data-layout="button_count"></div>
+
+      <div class="fb-like" data-href="<%= root_url %>" data-layout="standard" data-action="like" data-show-faces="true"></div>
+    </div>
     <p class="copyright">Copyright 2017 by <a href="https://twitter.com/midwhite/" target="_blank">@midwhite</a></p>
   </footer>
 </div>
