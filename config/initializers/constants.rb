@@ -1,4 +1,6 @@
 module Constants
+  S3_BUCKET_NAME = "s3.social-action-initiatives.net";
+  CDN_DOMAIN = "https://social-action-initiatives.net";
   DUMMY_EMAIL_DOMAIN = "@facebook.com"
   GENDER_PARAMS = ["男性", "女性", "その他"]
   AREA_PARAMS = [

@@ -26,4 +26,8 @@ test:
   host: localhost
 
 production:
+  encoding: utf8
+  adapter: mysql2
   url: <%= ENV["CLEARDB_DATABASE_URL"] %>
+  timeout: 5000
+  reconnect: false

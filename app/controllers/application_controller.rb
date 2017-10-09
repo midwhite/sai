@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def render_500
-    if request.xhr? || request.json?
+    if request.xhr?
       render status: 500, json: { messages: ["Internal Server Error"] }
     else
       template = user_signed_in? ? "homes/index" : "homes/welcome"

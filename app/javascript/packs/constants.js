@@ -1,5 +1,6 @@
 export const DUMMY_EMAIL_DOMAIN = "@facebook.com";
-export const API_DOMAIN = "https://www.social-action-initiatives.org";
+export const API_DOMAIN = "https://www.social-action-initiatives.net";
+export const CDN_DOMAIN = "https://social-action-initiatives.net";
 export const GENDER_PARAMS = ["男性", "女性", "その他"];
 export const AREA_PARAMS = [
   '北海道', '青森県', '岩手県', '宮城県', '秋田県',
