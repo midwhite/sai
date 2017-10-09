@@ -26,4 +26,4 @@ test:
   host: localhost
 
 production:
-  url: <%= ENV["DATABASE_URL"] %>
+  url: <%= ENV["CLEARDB_DATABASE_URL"] %>
