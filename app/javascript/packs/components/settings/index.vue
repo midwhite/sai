@@ -1,8 +1,14 @@
 <template>
   <div id="settings" class="row">
     <div class="col-xs-4">
-      <router-link to="/settings/profile" class="settings-menu-link">
+      <router-link :to="`users/${currentUser.id}`" class="settings-menu-link">
         <i class="icon ion-person"></i>
+        <p class="settings-menu">MyPage</p>
+      </router-link>
+    </div>
+    <div class="col-xs-4">
+      <router-link to="/settings/profile" class="settings-menu-link">
+        <i class="icon ion-person-add"></i>
         <p class="settings-menu">Edit Profile</p>
       </router-link>
     </div>
@@ -12,13 +18,23 @@
         <p class="settings-menu">Sign Out</p>
       </a>
     </div>
+    <div class="col-xs-4">
+      <a href="#/" class="settings-menu-link" @click="deregister">
+        <i class="icon ion-arrow-down-c"></i>
+        <p class="settings-menu">Deregister</p>
+      </a>
+    </div>
   </div>
 </template>
 
 <script type="text/javascript">
+  import { mapState } from 'vuex';
   import axios from 'axios';
 
   export default {
+    computed: {
+      ...mapState(["currentUser"])
+    },
     methods: {
       signOut(e){
         e.preventDefault();
@@ -27,6 +43,14 @@
         formData.append("authenticity_token", token);
         formData.append("_method", "DELETE");
         axios.post("/users/sign_out", formData).then(({data}) => { location.href = "/"; });
+      },
+      deregister(e){
+        e.preventDefault();
+        const token = document.querySelector("meta[name=csrf-token]").content;
+        const formData = new FormData();
+        formData.append("authenticity_token", token);
+        formData.append("_method", "DELETE");
+        axios.post("/users", formData).then(({data}) => { location.href = "/"; });
       }
     }
   }

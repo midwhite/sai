@@ -39,11 +39,13 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
-    User.where(uid: auth.uid).first_or_create do |user|
+    user = User.with_deleted.where(uid: auth.uid).first_or_create do |user|
       user.uid = auth.uid
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
       user.email = auth.info.email || "#{user.uid}#{DUMMY_EMAIL_DOMAIN}"
     end
+    user.recover if user.deleted_at.present?
+    user
   end
 end
