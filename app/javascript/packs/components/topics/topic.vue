@@ -8,6 +8,7 @@
       <span>について</span>
       <strong class="strong">{{position}}</strong>
     </div>
+    <PostUser :user="topic.user" />
     <h3>{{topic.title}}</h3>
     <div class="description">
       <div v-if="openContent" class="open-content">
@@ -34,6 +35,7 @@
   import { PARTY_PARAMS, POSITION_PARAMS } from '../../constants';
   import Comments from '../comments';
   import Articles from '../articles';
+  import PostUser from '../users/post_user';
 
   export default {
     props: ["topic", "initiallyOpenComments"],
@@ -49,7 +51,8 @@
     },
     components: {
       Comments,
-      Articles
+      Articles,
+      PostUser
     },
     methods: {
       ...mapActions(["makeGood", "makeBad"]),
@@ -101,7 +104,6 @@
     text-decoration: underline;
   }
   .post-time {
-    margin: 5px;
-    text-align: right;
+    margin: 5px 0px;
   }
 </style>

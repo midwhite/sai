@@ -63,6 +63,21 @@
               </td>
             </tr>
             <tr>
+              <th><label for="edit_user_university">出身大学</label></th>
+              <td>
+                <input type="text" name="user[university]" id="edit_user_university" class="form-control" placeholder="出身大学" />
+              </td>
+            </tr>
+            <tr>
+              <th><label for="edit_user_major">専攻</label></th>
+              <td>
+                <select name="user[major]" class="form-control" id="edit_user_major" :value="currentUser.major">
+                  <option value="">非公開</option>
+                  <option v-for="major in majors" :value="major">{{major}}</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
               <th><label for="edit_user_profile">プロフィール</label></th>
               <td>
                 <textarea type="number" name="user[profile]" id="edit_user_profile" class="form-control" placeholder="プロフィール" rows="10" :value="currentUser.profile" />
@@ -80,7 +95,7 @@
 
 <script>
   import { mapState, mapActions } from 'vuex';
-  import { GENDER_PARAMS, AREA_PARAMS, INDUSTRY_PARAMS, JOB_PARAMS, POLICY_PARAMS } from '../../constants';
+  import { GENDER_PARAMS, AREA_PARAMS, INDUSTRY_PARAMS, JOB_PARAMS, POLICY_PARAMS, MAJOR_PARAMS } from '../../constants';
 
   export default {
     computed: {
@@ -89,7 +104,8 @@
       areas()     { return AREA_PARAMS;     },
       industries(){ return INDUSTRY_PARAMS; },
       jobs()      { return JOB_PARAMS;      },
-      policies()  { return POLICY_PARAMS;   }
+      policies()  { return POLICY_PARAMS;   },
+      majors()    { return MAJOR_PARAMS;   }
     },
     methods: {
       ...mapActions(["editUser"]),

@@ -21,6 +21,8 @@ class User < ApplicationRecord
       district: self.district,
       industry: self.industry,
       job: self.job,
+      university: self.university,
+      major: self.major,
       photo: self.photo,
       policy_field: self.policy_field,
       team_id: self.team_id,

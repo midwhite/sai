@@ -2,11 +2,13 @@ class Api::TopicsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    topics   = Topic.order(id: :desc).map(&:response)
     articles = Ogp.where(target_type: "topic").map(&:response)
 
-    topics.map do |topic|
-      topic[:articles] = articles.select{|article| article[:topic_id] === topic[:id] }
+    topics = Topic.includes(:user).order(id: :desc).map do |topic|
+      json = topic.response
+      json[:articles] = articles.select{|article| article[:topic_id] === topic[:id] }
+      json[:user] = topic.user.response
+      json
     end
 
     render json: { topics: topics }

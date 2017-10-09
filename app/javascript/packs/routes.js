@@ -5,7 +5,7 @@ import Dictionary    from './components/dictionaries';
 import Teams         from './components/teams';
 import Notifications from './components/notifications';
 import Settings      from './components/settings';
-import EditProfile   from './components/settings/profile';
+import EditProfile   from './components/settings/edit_profile';
 import PageNotFound  from './components/not_found';
 
 const routes = {

@@ -10,5 +10,8 @@ class AddPhotoToUsers < ActiveRecord::Migration[5.1]
     add_column :users, :registered_at, :datetime
     remove_column :users, :district, :string
     add_column :users, :district, :integer
+
+    add_column :users, :university, :string
+    add_column :users, :major, :integer
   end
 end

@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 20171008092702) do
     t.integer "team_id"
     t.datetime "registered_at"
     t.integer "district"
+    t.string "university"
+    t.integer "major"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
