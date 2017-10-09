@@ -5,6 +5,11 @@ class Api::UsersController < ApplicationController
     render json: { user: current_user.me }
   end
 
+  def index
+    users = User.order(id: :desc)
+    render json: { users: users.map(&:response) }
+  end
+
   def show
     user = User.find(params[:id])
     render json: { user: user.response }

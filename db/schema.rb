@@ -53,13 +53,12 @@ ActiveRecord::Schema.define(version: 20171008092702) do
     t.text "content"
     t.integer "target_id"
     t.string "target_type"
-    t.integer "policy"
     t.integer "position"
     t.integer "good", default: 0, null: false
     t.integer "bad", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["policy"], name: "index_topics_on_policy"
+    t.string "policy"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -89,12 +88,13 @@ ActiveRecord::Schema.define(version: 20171008092702) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
-    t.integer "policy_field"
+    t.string "policy_field"
     t.integer "team_id"
     t.datetime "registered_at"
     t.integer "district"
     t.string "university"
     t.integer "major"
+    t.string "url"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

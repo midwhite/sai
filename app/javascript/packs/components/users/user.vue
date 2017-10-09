@@ -10,14 +10,21 @@
           <p>{{age}} {{gender}}</p>
           <p>選挙区: {{user.area}} {{user.district || "-"}}区</p>
           <p>業種: {{user.industry || "非公開"}} / 職種: {{user.job || "非公開"}}</p>
+          <p>出身校: {{user.university || "非公開"}}</p>
+          <p>専攻: {{major}}</p>
           <p>重視する政策領域: {{policy}}</p>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <p v-if="user.profile" v-for="sentense of user.profile.split(/\n|\r|\r\n/)">{{sentense}}</p>
+          <div v-if="user.profile">
+            <p v-for="sentense of user.profile.split(/\n|\r|\r\n/)">{{sentense}}</p>
+          </div>
           <p v-else style="color: #AAA;">No Profile</p>
         </div>
+      </div>
+      <div class="row user-topics">
+        <Topic v-for="topic of userTopics" :topic="topic" />
       </div>
     </div>
     <div v-else>
@@ -27,17 +34,14 @@
 </template>
 
 <script>
-  import axios from '../../store/axios';
-  import { GENDER_PARAMS, POLICY_PARAMS } from '../../constants';
+  import { mapState } from 'vuex';
+  import Topic from '../topics/topic';
+  import { GENDER_PARAMS, POLICY_PARAMS, MAJOR_PARAMS } from '../../constants';
 
   export default {
-    props: ["id"],
-    data(){
-      return {
-        user: null
-      };
-    },
+    props: ["user"],
     computed: {
+      ...mapState(["topics"]),
       gender(){
         return GENDER_PARAMS[this.user.gender];
       },
@@ -47,19 +51,18 @@
       },
       policy(){
         return POLICY_PARAMS[this.user.policy_field] || "特になし";
-      }
-    },
-    methods: {
-      getUser(){
-        axios.get(`/users/${this.id}`).then(({data}) => {
-          this.user = data.user;
-        }).catch((res) => {
-          this.user = null;
+      },
+      major(){
+        return MAJOR_PARAMS[this.user.major] || "特になし";
+      },
+      userTopics(){
+        return this.topics.filter(topic => {
+          return topic.user.id === this.user.id;
         });
       }
     },
-    mounted(){
-      this.getUser();
+    components: {
+      Topic
     }
   }
 </script>

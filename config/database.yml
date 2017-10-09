@@ -26,7 +26,4 @@ test:
   host: localhost
 
 production:
-  <<: *default
-  username: root
-  password:
-  database: sai_production
+  url: <%= ENV["DATABASE_URL"] %>

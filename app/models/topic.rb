@@ -1,6 +1,4 @@
 class Topic < ApplicationRecord
-  enum policy: POLICY_PARAMS
-
   validates :user_id, presence: true
   validates :title,   presence: true
   validates :content, presence: true

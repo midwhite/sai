@@ -7,6 +7,7 @@
       <span>について</span>
       <strong>{{position}}</strong>
     </div>
+    <PostUser :user="comment.user" />
     <div class="content">
       <p v-for="sentense of comment.content.split(/\n|\r|\r\n/)">{{sentense}}</p>
     </div>
@@ -18,11 +19,13 @@
 <script>
   import { PARTY_PARAMS, POSITION_PARAMS } from '../../constants';
   import Articles from '../articles';
+  import PostUser from '../users/post_user';
 
   export default {
     props: ["topic", "comment"],
     components: {
-      Articles
+      Articles,
+      PostUser
     },
     computed: {
       party(){ return PARTY_PARAMS[this.topic.target_id]; },

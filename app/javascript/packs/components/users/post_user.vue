@@ -15,6 +15,7 @@
 <script>
   export default {
     props: ["user"],
+    data(){ return { modalIsOpen: false }; },
     computed: {
       age(){
         const age = new Date().getFullYear() - this.user.birth_year;
@@ -24,6 +25,12 @@
         let area = this.user.area || "";
         area += (this.user.district ? this.user.district + "区" : "");
         return area || "エリア非公開";
+      }
+    },
+    methods: {
+      openModal(e){
+        e.preventDefault();
+        this.modalIsOpen = !this.modalIsOpen;
       }
     }
   }
