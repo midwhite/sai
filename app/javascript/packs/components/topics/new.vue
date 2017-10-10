@@ -1,7 +1,7 @@
 <template>
   <div id="newTopic">
     <form id="newTopicForm" @submit="onSubmit">
-      <p class="lets-post-topic">政治についての意見や知りたいことを投稿してみよう。</p>
+      <p class="lets-post-topic">政策についての意見や知りたいことを投稿してみよう。</p>
       <div class="btn-area select-position">
         <select name="topic[target_id]" id="new_topic_target_id" class="input-sm">
           <option v-for="(party, i) of parties" :value="i">{{party}}</option>

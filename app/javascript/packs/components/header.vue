@@ -2,7 +2,7 @@
   <header id="header">
     <div class="col-sm-3">
       <router-link to="/" class="logo-link">
-        <h1 @click="closeMenu">Social Action Initiatives</h1>
+        <h1 @click="closeMenu">Social Action <br class="hidden-xs" />Initiatives</h1>
       </router-link>
     </div>
     <div v-if="open" @click="closeMenu">

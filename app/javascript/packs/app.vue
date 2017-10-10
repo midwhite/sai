@@ -24,9 +24,11 @@
     created(){
       this.getCurrentUser();
       this.getNotifications();
+      this.$ga.page(location.pathname + location.search);
     },
     updated(){
       this.getNotifications();
+      this.$ga.page(location.pathname + location.search);
     }
   }
 </script>
